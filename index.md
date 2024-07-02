@@ -1,3 +1,13 @@
+<style>
+  body {
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    max-width: 1000px;
+    margin-top: 30px;
+  }
+</style>
+
 <div align="center">
     <img src="https://www.ufpb.br/aci/contents/imagens/diversos/logoufpb.png/@@images/image.pngRL_da_imagem" width="100" height="125">
 </div>
@@ -31,7 +41,8 @@ POR PARTES
 
 ### **1.4 Integrais Impróprias**
 
-
 ### **1.5 Aplicações: comprimento de curvas, área de uma região plana, volume de sólidos de revolução**
 
 ### **1.6 Área em coordenadas polares**
+
+</div>
