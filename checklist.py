@@ -1,10 +1,19 @@
+import sqlite3
 import streamlit as st
+from datetime import datetime
 
-# Configurando cookies
+def init_tracking_db():
+    conn = sqlite3.connect('user_interactions.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE IF NOT EXISTS interactions
+                username TEXT, action_type TEXT, item_id TEXT, timestamp DATETIME''')
+    conn.commit()
+    conn.close()
 
-# Set page config
-st.set_page_config(page_title="UFPB CÁLCULO DIFERENCIAL E INTEGRAL II", layout="centered")
-
+def log_interaction(username, action_type, item_id):
+    conn = sqlite3.connect('user_interactions.db')
+    c = conn.cursor()
+    
 # Load and display the logo
 st.image("logo_ufpb.png", width=100)
 
@@ -13,7 +22,6 @@ st.title("Ementa UFPB CÁLCULO DIFERENCIAL E INTEGRAL II")
 st.caption("(Cód.1103178)")
 
 # Main content
-import streamlit as st
 
 st.header("1. Integral De Funções De Uma Variável")
 
@@ -25,7 +33,7 @@ with st.expander("1.1 Primitivas e o Conceito De Integral"):
     st.subheader("EXERCÍCIOS")
     st.checkbox("[Integral Indefinida Exercícios Resolvidos](https://www.youtube.com/watch?v=-guXJsi1_pQ)")
     st.checkbox("[Problemas de Valor Inicial](https://www.youtube.com/watch?v=kGVQIr9OE3c) (Aqui é utilizado método de substituição, recomendado pular se for estudar pela primeira vez)")
-    st.checkbox("Resolução De Exercícios Sobre Integral Indefinida (Aqui é utilizado método de substituição, recomendado pular se for estudar pela primeira vez)")
+    st.checkbox("[Resolução De Exercícios Sobre Integral Indefinida](https://www.youtube.com/watch?v=ZXzo7TitXP4) (Aqui é utilizado método de substituição, recomendado pular se for estudar pela primeira vez)")
     st.checkbox("[Exercícios Resolvidos](https://www.youtube.com/watch?v=30UPUOESJBw) (Ver apenas depois de estudar as técnicas de integração, recomendado pular se não viu ainda)")
 
 # Seção 1.2
@@ -40,11 +48,12 @@ with st.expander("1.2 Técnicas de Integração"):
     st.checkbox("[Resolução de Exercícios: Integração por Partes](https://www.youtube.com/watch?v=HQ4kPrI_Rqo)")
 
 # Seção 1.3
-with st.expander("1.3 Integrais Definidas"):  # Adicionar checkboxes ou outros elementos aqui
-    pass
+with st.expander("1.3 Teorema Fundamental do Cálculo (Integral Definida)"):  # Adicionar checkboxes ou outros elementos aqui
+    st.checkbox("[Integral Definida](https://www.youtube.com/watch?v=b_obOKXOp-w)")
+    st.checkbox("[Como Calcular Integral Definida](https://www.youtube.com/watch?v=OnNumVQkHgQ)")
 
-with st.expander("1.4 Integrais Impróprias"):
-    pass  # Adicionar checkboxes ou outros elementos aqui
+with st.expander("1.4 Integral Imprópria"):
+    st.checkbox("[Integrais Impróprias](https://www.youtube.com/watch?v=0cqcO9opyuU)")
 
 with st.expander("1.5 Aplicações: comprimento de curvas, área de uma região plana, volume de sólidos de revolução"):
     pass  # Adicionar checkboxes ou outros elementos aqui
