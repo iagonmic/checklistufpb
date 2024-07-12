@@ -13,7 +13,7 @@ def main():
         st.session_state["logged_in"] = False
     
     if st.session_state["logged_in"]:
-        pass
+        checklist.checklist_page()
     else:
         login.login_page()
 
